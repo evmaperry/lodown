@@ -47,22 +47,12 @@ function typeOf(value){
 }
 
 /** 
- * first: returns a defined number of elements from the beginning of the array
-* Arguments:
-*   1) An array
-*   2) A number
-* Objectives:
-*   1) If <array> is not an array, return []
-*   2) If <number> is not given or not a number, return just the first element in <array>.
-*   3) Otherwise, return the first <number> items of <array>
-* Edge Cases:
-*   1) What if <number> is negative?
-*   2) What if <number> is greater than <array>.length?
-* Examples:
-*   _.first("ponies", 1) -> []
-*   _.first(["a", "b", "c"], "ponies") -> "a"
-*   _.first(["a", "b", "c"], 1) -> "a"
-*   _.first(["a", "b", "c"], 2) -> ["a", "b"]
+ * .first: returns a defined number of elements from the beginning of the input array in a new array.
+ * Returns the array's first element if 'num' argument is not a number or undefined. 
+ * 
+ * @param {Array} arr: the array the elements of which are returned
+ * @param {Number} num: the number of elements from the input array to be returned in a new array.
+* 
 */
 function first(arr, num){
     if(!Array.isArray(arr)){
@@ -83,24 +73,15 @@ function first(arr, num){
     }
 }
 
-/** _.last
-* Arguments:
-*   1) An array
-*   2) A number
-* Objectives:
-*   1) If <array> is not an array, return []
-*   2) If <number> is not given or not a number, return just the last element in <array>.
-*   3) Otherwise, return the last <number> items of <array>
-* Edge Cases:
-*   1) What if <number> is negative?
-*   2) What if <number> is greater than <array>.length?
-* Examples:
-*   _.last("ponies", 2) -> []
-*   _.last(["a", "b", "c"], "ponies") -> "c"
-*   _.last(["a", "b", "c"], 1) -> "c"
-*   _.last(["a", "b", "c"], 2) -> ["b", "c"]
+/** 
+ * .last: returns a defined number of elements from the end of the input array in a new array.
+ * Returns the last element of the input array if the 'num' argument is not a number or undefined.
+ * 
+ * @param {Array} arr: the array the last element(s) of which are returned in a new array.
+ * @param {Number} num: the number of items returned from the end of the input array.
+ * 
 */
-_.last = function(arr, num){
+function last(arr, num){
     if(this.typeOf(arr) !== "array"){
         return [];
     }
@@ -119,22 +100,16 @@ _.last = function(arr, num){
     }
 }
 
-/** _.indexOf
-* Arguments:
-*   1) An array
-*   2) A value
-* Objectives:
-*   1) Return the index of <array> that is the first occurrance of <value>
-*   2) Return -1 if <value> is not in <array>
-*   3) Do not use [].indexOf()!
-* Edge Cases:
-*   1) What if <array> has multiple occurances of val?
-*   2) What if <val> isn't in <array>?
-* Examples:
-*   _.indexOf(["a","b","c"], "c") -> 2
-*   _.indexOf(["a","b","c"], "d") -> -1
+/** 
+ * .indexOf: returns the index of an element in the input array in case the input value is equal
+ * to the element's value. Returns the index of the first element the value of which is equal to
+ * the input value.
+ * 
+ * @param {Array} arr: the array the elements of which are evaluated against the input value.
+ * @param {Value} value: the value that is compared to the value of elements in the input array.
+ * 
 */
-_.indexOf = function(arr, value){
+function indexOf(arr, value){
     for ( let i = 0; i <= arr.length - 1; i++){
         if (arr[i] === value){
             return i;
@@ -143,21 +118,16 @@ _.indexOf = function(arr, value){
     return (-1)
 }
 
-/** _.contains
-* Arguments:
-*   1) An array
-*   2) A value
-* Objectives:
-*   1) Return true if <array> contains <value>
-*   2) Return false otherwise
-*   3) You must use the ternary operator in your implementation.
-* Edge Cases:
-*   1) did you use === ?
-*   2) what if no <value> is given?
-* Examples:
-*   _.contains([1,"two", 3.14], "two") -> true
+/** 
+ * .contains: returns true in case a defined value is the value of an element in the input array. If
+ * the input value does not equal the value of an element in the input array, the function returns
+ * false.
+ * 
+ * @param {Array} arr: the array the elements of which are evaluated for equality to the input value.
+ * @param {Value} val: the value that is evaluated against the elements of the input array.
+ * 
 */
-_.contains = function(arr, value){
+function contains(arr, value){
     for ( let i = 0 ; i <= arr.length -1 ; i++){
         if (arr[i] === value){
             return true
@@ -166,22 +136,16 @@ _.contains = function(arr, value){
     return false;
 }
 
-/** _.each
-* Arguments:
-*   1) A collection
-*   2) A function
-* Objectives:
-*   1) if <collection> is an array, call <function> once for each element
-*      with the arguments:
-*         the element, it's index, <collection>
-*   2) if <collection> is an object, call <function> once for each property
-*      with the arguments:
-*         the property's value, it's key, <collection>
-* Examples:
-*   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
-*      -> should log "a" "b" "c" to the console
+/** 
+ * .each: executes a defined function on all members of a defined collection. Works for both arrays
+ * and objects. For arrays, the value of each element is passed into the defined function. For objects
+ * the value of each property is passed into the defined function.
+ * 
+ * @param {Array or Object} collection: the collection the elements of which are passed into a defined function.
+ * @param {Function} func: the function that executes on each member of the collection.
+ * 
 */
-_.each = function(collection, func){
+function each(collection, func){
     if (Array.isArray(collection)){
         for (let i = 0 ; i <= collection.length - 1; i++){
             func(collection[i], i, collection);
@@ -193,7 +157,10 @@ _.each = function(collection, func){
     }
 }
 
-/** _.unique
+/** 
+ * .unique: takes an input array and returns an array with duplicates removed.
+ * 
+ * @param {Array} array: the array the duplicates of which will be removed  
 * Arguments:
 *   1) An array
 * Objectives:
