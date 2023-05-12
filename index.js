@@ -12,12 +12,13 @@
  * @param {Object, Array or Value} value: the value to be returned
  * 
 */
+
 function identity(value){
     return value;
 }
 
 /**
- * .typeOf: takes any value and returns its datatype as a string. Works
+ * typeOf: takes any value and returns its datatype as a string. Works
  * with string, array, object, function, undefined, number, boolean,
  * and null datatypes.
  * 
@@ -25,6 +26,7 @@ function identity(value){
  * is returned by the function. 
  * 
 */
+
 function typeOf(value){
     switch (true){
         case (typeof value === "string"):
@@ -47,13 +49,14 @@ function typeOf(value){
 }
 
 /** 
- * .first: returns a defined number of elements from the beginning of the input array in a new array.
+ * first: returns a defined number of elements from the beginning of the input array in a new array.
  * Returns the array's first element if 'num' argument is not a number or undefined. 
  * 
  * @param {Array} arr: the array the elements of which are returned
  * @param {Number} num: the number of elements from the input array to be returned in a new array.
 * 
 */
+
 function first(arr, num){
     if(!Array.isArray(arr)){
         return [];
@@ -74,13 +77,14 @@ function first(arr, num){
 }
 
 /** 
- * .last: returns a defined number of elements from the end of the input array in a new array.
+ * last: returns a defined number of elements from the end of the input array in a new array.
  * Returns the last element of the input array if the 'num' argument is not a number or undefined.
  * 
  * @param {Array} arr: the array the last element(s) of which are returned in a new array.
  * @param {Number} num: the number of items returned from the end of the input array.
  * 
 */
+
 function last(arr, num){
     if(this.typeOf(arr) !== "array"){
         return [];
@@ -101,7 +105,7 @@ function last(arr, num){
 }
 
 /** 
- * .indexOf: returns the index of an element in the input array in case the input value is equal
+ * indexOf: returns the index of an element in the input array in case the input value is equal
  * to the element's value. Returns the index of the first element the value of which is equal to
  * the input value.
  * 
@@ -109,6 +113,7 @@ function last(arr, num){
  * @param {Value} value: the value that is compared to the value of elements in the input array.
  * 
 */
+
 function indexOf(arr, value){
     for ( let i = 0; i <= arr.length - 1; i++){
         if (arr[i] === value){
@@ -119,7 +124,7 @@ function indexOf(arr, value){
 }
 
 /** 
- * .contains: returns true in case a defined value is the value of an element in the input array. If
+ * contains: returns true in case a defined value is the value of an element in the input array. If
  * the input value does not equal the value of an element in the input array, the function returns
  * false.
  * 
@@ -127,6 +132,7 @@ function indexOf(arr, value){
  * @param {Value} val: the value that is evaluated against the elements of the input array.
  * 
 */
+
 function contains(arr, value){
     for ( let i = 0 ; i <= arr.length -1 ; i++){
         if (arr[i] === value){
@@ -137,7 +143,7 @@ function contains(arr, value){
 }
 
 /** 
- * .each: executes a defined function on all members of a defined collection. Works for both arrays
+ * each: executes a defined function on all members of a defined collection. Works for both arrays
  * and objects. For arrays, the value of each element is passed into the defined function. For objects
  * the value of each property is passed into the defined function.
  * 
@@ -145,6 +151,7 @@ function contains(arr, value){
  * @param {Function} func: the function that executes on each member of the collection.
  * 
 */
+
 function each(collection, func){
     if (Array.isArray(collection)){
         for (let i = 0 ; i <= collection.length - 1; i++){
@@ -158,11 +165,12 @@ function each(collection, func){
 }
 
 /** 
- * .unique: takes an input array and returns an array with duplicates removed.
+ * unique: takes an input array and returns an array with duplicates removed.
  * 
  * @param {Array} array: the array the duplicates of which will be removed from the output array.
  *   
 */
+
 function unique(array){
     let storageArray = [];
     for (let i = 0 ; i <= array.length - 1 ; i++){
@@ -174,7 +182,7 @@ function unique(array){
 }
 
 /** 
- * .filter: takes an input array and executes a defined callback function on each element. If the callback
+ * filter: takes an input array and executes a defined callback function on each element. If the callback
  * returns true, the element is pushed into a new array; if the callback returns false, the element is passed
  * over. .filter returns a new array of all elements that, when passed through the callback function, return 
  * true.
@@ -184,6 +192,7 @@ function unique(array){
  * function must return a boolean value for .filter to work properly.
  * 
 */
+
 function filter(array, func){
     let returnArray = []
     for (let i = 0 ; i<=array.length-1; i++){
@@ -195,7 +204,7 @@ function filter(array, func){
 }
 
 /** 
- * .reject: takes an input array, passes each element through a callback function, and returns an array populated
+ * reject: takes an input array, passes each element through a callback function, and returns an array populated
  * by the elements that, when they are passed through the callback function, return false. 
  * 
  * @param {Array} array: the array the elements of which are passed through the callback function.
@@ -203,6 +212,7 @@ function filter(array, func){
  * function must evaluated to a boolean in order for .reject to work properly.
  * 
 */
+
 function reject(array, func){
     let storageArray = [];
     for (let i = 0; i <= array.length-1; i++){
@@ -214,7 +224,7 @@ function reject(array, func){
 }
 
 /** 
- * .partition: separates the elements of an array into two arrays according to whether their passing
+ * partition: separates the elements of an array into two arrays according to whether their passing
  * through a callback function returns true or false. Both the 'true' and 'false' arrays are returned
  * by .partition in a single array. The first element of the returned array is an array of those elements
  * that return true after being passed through the callback, while the second element is an array of those
@@ -225,6 +235,7 @@ function reject(array, func){
  * must return a boolean value in order for .partition to work.
  * 
 */
+
 function partition(array, func){
     let returnArray = [];
     let passArray = [];
@@ -243,7 +254,7 @@ function partition(array, func){
 }
 
 /** 
- * .map: takes an input collection (i.e., an array or object) and executes a defined callback function on each member. The
+ * map: takes an input collection (i.e., an array or object) and executes a defined callback function on each member. The
  * result of each callback are then saved to a new array, which is returned after all members have been passed to 
  * the callback function.
  * 
@@ -251,6 +262,7 @@ function partition(array, func){
  * @param {Function} func: the callback function through which members of the input collection are passed.
  * 
 */
+
 function map(collection, func){
     let returnArray = [];
     
@@ -270,7 +282,7 @@ function map(collection, func){
 }
 
 /** 
- * .pluck: takes an input array of objects and a defined property, and loops through the array of objects 
+ * pluck: takes an input array of objects and a defined property, and loops through the array of objects 
  * to determine if the defined property is in each object. If so, the value of the defined property is
  * push into an array, and the array is returned after all elements have been evaluated for the presence of
  * the defined property. The returned array, then, is populated with the values of the defined property of
@@ -294,7 +306,7 @@ function pluck(array, prop){
 }
 
 /** 
- * .every: takes an input collection (i.e., and array or object) and executes a callback function on each
+ * every: takes an input collection (i.e., and array or object) and executes a callback function on each
  * member of the collection. Returns true in case all members of the collection return true after their call-
  * back execution, and returns false if some member of the collection returns false after its callback execution.
  * 
@@ -335,7 +347,7 @@ function every(collection, func){
 }
 
 /** 
- * .some: takes an input collection (i.e., an array or object) and passes each member of the collection
+ * some: takes an input collection (i.e., an array or object) and passes each member of the collection
  * to a callback function. Returns true in case any member of the collection returns true after being passed
  * through the callback function. If no members return true, then .some returns false.
  * 
@@ -389,34 +401,29 @@ function some(collection, func){
     }
 }
 
-/** _.reduce
-* Arguments:
-*   1) An array
-*   2) A function
-*   3) A seed
-* Objectives:
-*   1) Call <function> for every element in <collection> passing the arguments:
-*         previous result, element, index
-*   2) Use the return value of <function> as the "previous result"
-*      for the next iteration
-*   3) On the very first iteration, use <seed> as the "previous result"
-*   4) If no <seed> was given, use the first element/value of <collection> as <seed> and continue to the next element
-*   5) After the last iteration, return the return value of the final <function> call
-* Edge Cases:
-*   1) What if <seed> is not given?
-* Examples:
-*   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
+/** 
+ * reduce: takes an input array, a callback function, and a seed value. The callback function is first called on 
+ * the seed value (if the seed value is provided), but otherwise is called on the first element of the array. 
+ * The returned result of this first call is routed into the next call of the callback function, which executes
+ * on the succeeding element of the array. Thus a "previous value" or "accumulator" is
+ * also passed through on each callback execution.
+ * 
+ * @param {Array} array: the list of elements over which the callback function executes.
+ * @param {Function} func: the callback function that is called over successive elements of the input array. This function's
+ * definition determines how the "previous value" is changed as the callback executes on successive elements.
+ * @param {Array, Object or Value} seed: an optional Array, Object or Value that serves as the starting point for the
+ * exeecution of .reduce.
+ * 
 */
-_.reduce = function(array, func, seed){
+
+function reduce(array, func, seed){
     let result;
-    // was seed passed
-    if (seed === undefined){ // declare conditional to evaluate if 
+    if (seed === undefined){ 
         result = array[0];
         for (let i = 1; i<=array.length-1;i++){
             result = func(result,array[i], i, array);
         }
     }
-    // else it's
     else {
         result = seed;
         for (let i = 0; i<=array.length-1; i++){
@@ -426,51 +433,38 @@ _.reduce = function(array, func, seed){
     return result;
 }
 
-/** _.extend
-* Arguments:
-*   1) An Object
-*   2) An Object
-*   ...Possibly more objects
-* Objectives:
-*   1) Copy properties from <object 2> to <object 1>
-*   2) If more objects are passed in, copy their properties to <object 1> as well, in the order they are passed in.
-*   3) Return the update <object 1>
-* Examples:
-*   var data = {a:"one"};
-*   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
-*   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
+/** 
+ * extend: takes a target object and any number of source objects, and copies the properties from the source objects
+ * to the targe object, then returns the updated target object.
+ * 
+ * @param {Object} object: the object to which all properties from source objects will be copied.
+ * @param {Array} objects: the array that contains the objects the properties of which are copied to the target object.
+ * 
 */
-_.extend = function(object1, object2, ...objects){
-    for (let key in object2){
-        object1[key] = object2[key];
-    }
+
+function extend(object, ...objects){
     for (let i = 0; i<=objects.length-1; i++){
         for (let key in objects[i]){
-            object1[key] = objects[i][key];
+            object[key] = objects[i][key];
         }
     }
-    return object1;
+    return object;
 }
 
-
-/**
- * each: Designed to loop over a collection, Array or Object, and applies the 
- * action Function to each value in the collection.
- * 
- * @param {Array or Object} collection: The collection over which to iterate.
- * @param {Function} action: The Function to be applied to each value in the 
- * collection
- */
-function each(collection, action) {
-    if(Array.isArray(collection)) {
-        for(var i = 0; i < collection.length; i++) {
-            action(collection[i], i, collection);
-        }
-    } else {
-        for (var key in collection) {
-            action(collection[key], key, collection);
-        }
-    }
-}
 module.exports.each = each;
 module.exports.identity = identity;
+module.exports.extend = extend;
+module.exports.reduce = reduce;
+module.exports.every = every;
+module.exports.some = some;
+module.exports.pluck = pluck;
+module.exports.map = map;
+module.exports.partition = partition;
+module.exports.reject = reject;
+module.exports.filter = filter;
+module.exports.unique = unique;
+module.exports.indexOf = indexOf;
+module.exports.contains = contains;
+module.exports.last = last;
+module.exports.first = first;
+module.exports.typeOf = typeOf;
