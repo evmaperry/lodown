@@ -203,7 +203,7 @@ function filter(array, func){
  * function must evaluated to a boolean in order for .reject to work properly.
  * 
 */
-_.reject = function(array, func){
+function reject(array, func){
     let storageArray = [];
     for (let i = 0; i <= array.length-1; i++){
         if(!func(array[i], i, array)){
@@ -282,7 +282,7 @@ function map(collection, func){
  * 
 */
 function pluck(array, prop){
-    let newArray = _.map(array, function(object){
+    let newArray = map(array, function(object){
         for (let key in object){
             if (key === prop){
                 return object[key];
@@ -293,27 +293,18 @@ function pluck(array, prop){
     return newArray;
 }
 
-/** _.every
-* Arguments:
-*   1) A collection
-*   2) A function
-* Objectives:
-*   1) Call <function> for every element of <collection> with the paramaters:
-*      if <collection> is an array:
-*          current element, it's index, <collection>
-*      if <collection> is an object:
-*          current value, current key, <collection>
-*   2) If the return value of calling <function> for every element is true, return true
-*   3) If even one of them returns false, return false
-*   4) If <function> is not provided, return true if every element is truthy, otherwise return false
-* Edge Cases:
-*   1) what if <function> doesn't return a boolean
-*   2) What if <function> is not given?
-* Examples:
-*   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
-*   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
+/** 
+ * .every: takes an input collection (i.e., and array or object) and executes a callback function on each
+ * member of the collection. Returns true in case all members of the collection return true after their call-
+ * back execution, and returns false if some member of the collection returns false after its callback execution.
+ * 
+ * @param {Array or Object} collection: the collection the elements of which are passed through a callback
+ * @param {Function} func: the callback function through which each member of the input collection is passed. This
+ * function must return a boolean value for .every to work properly.
+ * 
 */
-_.every = function(collection, func){
+
+function every(collection, func){
     if (func === undefined){
         func = function(val){
             if (val){
