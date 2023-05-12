@@ -316,7 +316,7 @@ function every(collection, func){
         }
     }
     
-    if (_.typeOf(collection)==="array"){
+    if (typeOf(collection)==="array"){
         for (let i = 0; i<=collection.length-1;i++){
             if (func(collection[i], i, collection)===false){
                 return false;
@@ -324,7 +324,7 @@ function every(collection, func){
         }
         return true;
     }
-    if (_.typeOf(collection)==="object"){
+    if (typeOf(collection)==="object"){
         for (let key in collection){
             if (func(collection[key], key, collection)===false){
                 return false;
@@ -334,29 +334,21 @@ function every(collection, func){
     }
 }
 
-/** _.some
-* Arguments:
-*   1) A collection
-*   2) A function
-* Objectives:
-*   1) Call <function> for every element of <collection> with the paramaters:
-*       if <collection> is an array:
-*        current element, it's index, <collection>
-*       if <collection> is an object:
-*        current value, current key, <collection>
-*   2) If the return value of calling <function> is true for at least one element, return true
-*   3) If it is false for all elements, return false
-*   4) If <function> is not provided return true if at least one element is truthy, otherwise return false
-* Edge Cases:
-*   1) what if <function> doesn't return a boolean
-*   2) What if <function> is not given?
-* Examples:
-*   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
-*   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
+/** 
+ * .some: takes an input collection (i.e., an array or object) and passes each member of the collection
+ * to a callback function. Returns true in case any member of the collection returns true after being passed
+ * through the callback function. If no members return true, then .some returns false.
+ * 
+ * @param {Array or Object} collection: the array or object the members of which are passed through a callback
+ * function.
+ * @param {Function} func: the callback function through which members of the input collection are passed. This function
+ * must return a boolean to work properly.
+ * 
 */
-_.some = function(collection, func){
+
+function some(collection, func){
     if(func === undefined){
-        if(_.typeOf(collection) === "array"){
+        if(typeOf(collection) === "array"){
             for (let i = 0 ; i<=collection.length-1; i++){
                 if(collection[i]==true){
                     return true;
@@ -365,7 +357,7 @@ _.some = function(collection, func){
             return false;
         }
 
-        if(_.typeOf(collection) === "object"){
+        if(typeOf(collection) === "object"){
             for (let key in collection){
                 if(collection[key]==true){
                     return true;
@@ -376,8 +368,8 @@ _.some = function(collection, func){
         }
     }
     
-    if (_.typeOf(func) === "function"){
-        if(_.typeOf(collection) === "array"){
+    if (typeOf(func) === "function"){
+        if(typeOf(collection) === "array"){
             for (let i = 0 ; i<=collection.length-1; i++){
                 if(func(collection[i], i, collection)===true){
                     return true;
@@ -386,7 +378,7 @@ _.some = function(collection, func){
             return false;
         }
 
-        if(_.typeOf(collection) === "object"){
+        if(typeOf(collection) === "object"){
             for (let key in collection){
                 if(func(collection[key], key, collection)===true){
                     return true;
