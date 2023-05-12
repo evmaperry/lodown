@@ -160,16 +160,10 @@ function each(collection, func){
 /** 
  * .unique: takes an input array and returns an array with duplicates removed.
  * 
- * @param {Array} array: the array the duplicates of which will be removed  
-* Arguments:
-*   1) An array
-* Objectives:
-*   1) Return a new array of all elements from <array> with duplicates removed
-*   2) Use _.indexOf() from above
-* Examples:
-*   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
+ * @param {Array} array: the array the duplicates of which will be removed from the output array.
+ *   
 */
-_.unique = function(array){
+function unique(array){
     let storageArray = [];
     for (let i = 0 ; i <= array.length - 1 ; i++){
         if (_.indexOf(storageArray, array[i]) === -1){
@@ -179,22 +173,18 @@ _.unique = function(array){
     return storageArray;
 }
 
-/** _.filter
-* Arguments:
-*   1) An array
-*   2) A function
-* Objectives:
-*   1) call <function> for each element in <array> passing the arguments:
-*      the element, it's index, <array>
-*   2) return a new array of elements for which calling <function> returned true
-* Edge Cases:
-*   1) What if <function> returns something other than true or false?
-* Examples:
-*   _.filter([1,2,3,4,5], function(x){return x%2 === 0}) -> [2,4]
-* Extra Credit:
-*   use _.each in your implementation
+/** 
+ * .filter: takes an input array and executes a defined callback function on each element. If the callback
+ * returns true, the element is pushed into a new array; if the callback returns false, the element is passed
+ * over. .filter returns a new array of all elements that, when passed through the callback function, return 
+ * true.
+ * 
+ * @param {Array} array: the array the elements of which are passed to the callback function.
+ * @param {Function} func: the callback function through which the input array's elements are passed. This
+ * function must return a boolean value for .filter to work properly.
+ * 
 */
-_.filter = function(array, func){
+function filter(array, func){
     let returnArray = []
     for (let i = 0 ; i<=array.length-1; i++){
         if(func(array[i], i, array)){
@@ -204,17 +194,14 @@ _.filter = function(array, func){
     return returnArray;
 }
 
-/** _.reject
-* Arguments:
-*   1) An array
-*   2) A function
-* Objectives:
-*   1) call <function> for each element in <array> passing the arguments:
-*      the element, it's index, <array>
-*   2) return a new array of elements for which calling <function> returned false
-*   3) This is the logical inverse if _.filter()
-* Examples:
-*   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
+/** 
+ * .reject: takes an input array, passes each element through a callback function, and returns an array populated
+ * by the elements that, when they are passed through the callback function, return false. 
+ * 
+ * @param {Array} array: the array the elements of which are passed through the callback function.
+ * @param {Function} func: the callback function that executes on each element of the input array. This 
+ * function must evaluated to a boolean in order for .reject to work properly.
+ * 
 */
 _.reject = function(array, func){
     let storageArray = [];
@@ -226,25 +213,19 @@ _.reject = function(array, func){
     return storageArray;
 }
 
-/** _.partition
-* Arguments:
-*   1) An array
-*   2) A function
-* Objectives:
-*   1) Call <function> for each element in <array> passing it the arguments:
-*       element, key, <array>
-*   2) Return an array that is made up of 2 sub arrays:
-*       0) An array that contains all the values for which <function> returned something truthy
-*       1) An array that contains all the values for which <function> returned something falsy
-* Edge Cases:
-*   1) This is going to return an array of arrays.
-* Examples:
-*   _.partition([1,2,3,4,5], function(element,index,arr){
-*     return element % 2 === 0;
-*   }); -> [[2,4],[1,3,5]]
-}
+/** 
+ * .partition: separates the elements of an array into two arrays according to whether their passing
+ * through a callback function returns true or false. Both the 'true' and 'false' arrays are returned
+ * by .partition in a single array. The first element of the returned array is an array of those elements
+ * that return true after being passed through the callback, while the second element is an array of those
+ * elements that fail after passing through the callback.
+ * 
+ * @param {Array} array: the array the elements of which are passed through the defined callback function.
+ * @param {Function} func: the callback function through which each element of the input array is passed. This function
+ * must return a boolean value in order for .partition to work.
+ * 
 */
-_.partition = function(array, func){
+function partition(array, func){
     let returnArray = [];
     let passArray = [];
     let failArray = [];
@@ -261,22 +242,16 @@ _.partition = function(array, func){
     return returnArray;
 }
 
-/** _.map
-* Arguments:
-*   1) A collection
-*   2) a function
-* Objectives:
-*   1) call <function> for each element in <collection> passing the arguments:
-*        if <collection> is an array:
-*            the element, it's index, <collection>
-*        if <collection> is an object:
-*            the value, it's key, <collection>
-*   2) save the return value of each <function> call in a new array
-*   3) return the new array
-* Examples:
-*   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
+/** 
+ * .map: takes an input collection (i.e., an array or object) and executes a defined callback function on each member. The
+ * result of each callback are then saved to a new array, which is returned after all members have been passed to 
+ * the callback function.
+ * 
+ * @param {Array or Object} collection: the array or object the members of which are passed to a defined callback.
+ * @param {Function} func: the callback function through which members of the input collection are passed.
+ * 
 */
-_.map = function(collection, func){
+function map(collection, func){
     let returnArray = [];
     
     if (_.typeOf(collection) === "array"){
@@ -294,17 +269,19 @@ _.map = function(collection, func){
     return returnArray;
 }
 
-/** _.pluck
-* Arguments:
-*   1) An array of objects
-*   2) A property
-* Objectives:
-*   1) Return an array containing the value of <property> for every element in <array>
-*   2) You must use _.map() in your implementation.
-* Examples:
-*   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
+/** 
+ * .pluck: takes an input array of objects and a defined property, and loops through the array of objects 
+ * to determine if the defined property is in each object. If so, the value of the defined property is
+ * push into an array, and the array is returned after all elements have been evaluated for the presence of
+ * the defined property. The returned array, then, is populated with the values of the defined property of
+ * each object, if the property exists in the object.
+ * 
+ * @param {Array} array: an array of objects, the objects of which are evaluated for the presence of the defined property
+ * @param {String} prop: a property, represented as a string, the presence of which is evaluated in each object of
+ * the input array.
+ * 
 */
-_.pluck = function(array, prop){
+function pluck(array, prop){
     let newArray = _.map(array, function(object){
         for (let key in object){
             if (key === prop){
