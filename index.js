@@ -1,16 +1,13 @@
 'use strict';
 
-// YOU KNOW WHAT TO DO //
 /**
-* START OF OUR LIBRARY!
-* Implement each function below its instructions
-*/
-
-/**
- * identity: takes in any value and returns the same value
+ * identity: takes in any value and returns the same value.
  * 
- * @param {Object, Array or Value} value: the value to be returned
+ * @param {Object, Array or Value} value: the value to be returned.
  * 
+ * @return {Object, Array Or Value}: the same collection or value input as
+ * an argument. This function returns what is provided as an argument in 
+ * the function invocation.
 */
 
 function identity(value){
@@ -25,6 +22,8 @@ function identity(value){
  * @param {Object, Array or Value} value: the value the datatype of which
  * is returned by the function. 
  * 
+ * @return {String}: the name of the type of value of the argument, i.e.,
+ * "string" or "number".
 */
 
 function typeOf(value){
@@ -54,7 +53,10 @@ function typeOf(value){
  * 
  * @param {Array} arr: the array the elements of which are returned
  * @param {Number} num: the number of elements from the input array to be returned in a new array.
-* 
+ * 
+ * @return {Array}: an array of values derived from the beginning of the input array. The number of elements in the
+ * return array is derived from the num argument provided at invocation.
+ * 
 */
 
 function first(arr, num){
@@ -83,6 +85,8 @@ function first(arr, num){
  * @param {Array} arr: the array the last element(s) of which are returned in a new array.
  * @param {Number} num: the number of items returned from the end of the input array.
  * 
+ * @return {Array}: an array of values derived form the end of the onput array. The number
+ * of elements in the return array is a function of the num argument provided at invocation. 
 */
 
 function last(arr, num){
@@ -107,11 +111,14 @@ function last(arr, num){
 /** 
  * indexOf: returns the index of an element in the input array in case the input value is equal
  * to the element's value. Returns the index of the first element the value of which is equal to
- * the input value.
+ * the input value. If the provided value is not found in the provided array, then the function
+ * return -1.
  * 
  * @param {Array} arr: the array the elements of which are evaluated against the input value.
  * @param {Value} value: the value that is compared to the value of elements in the input array.
  * 
+ * @return {Number}: either the index of the provided array at which the value is located or,
+ * if the value is not in the array, -1.
 */
 
 function indexOf(arr, value){
@@ -131,6 +138,8 @@ function indexOf(arr, value){
  * @param {Array} arr: the array the elements of which are evaluated for equality to the input value.
  * @param {Value} val: the value that is evaluated against the elements of the input array.
  * 
+ * @returns {Boolean}: either true or false. True if the provided value is located somewhere in the
+ * provided array, and false if not.
 */
 
 function contains(arr, value){
