@@ -272,12 +272,15 @@ function partition(array, func){
 
 /** 
  * map: takes an input collection (i.e., an array or object) and executes a defined callback function on each member. The
- * result of each callback are then saved to a new array, which is returned after all members have been passed to 
+ * result of each callback are then saved to a new array, which is then returned after all members have been passed to 
  * the callback function.
  * 
  * @param {Array or Object} collection: the array or object the members of which are passed to a defined callback.
  * @param {Function} func: the callback function through which members of the input collection are passed.
  * 
+ * @return {Array or Object}: this function returns the same type, either Array or Object, that is provided as the
+ * collection argument at invocation. The elements of a returned Array or the values of a returned Object are updated
+ * by the provided callback function.
 */
 
 function map(collection, func){
@@ -299,17 +302,20 @@ function map(collection, func){
 }
 
 /** 
- * pluck: takes an input array of objects and a defined property, and loops through the array of objects 
- * to determine if the defined property is in each object. If so, the value of the defined property is
+ * pluck: takes an input array of objects and a provided property written as a string, and loops through the array of objects 
+ * to determine if the provided property is in each object. If so, the value of that property is
  * push into an array, and the array is returned after all elements have been evaluated for the presence of
- * the defined property. The returned array, then, is populated with the values of the defined property of
- * each object, if the property exists in the object.
+ * the provided property. The returned array, then, is populated with the values of the provided property of
+ * each object (if the property exists in the object).
  * 
  * @param {Array} array: an array of objects, the objects of which are evaluated for the presence of the defined property
  * @param {String} prop: a property, represented as a string, the presence of which is evaluated in each object of
  * the input array.
  * 
+ * @return {Array}: an array containing the property values of those objects in the input array that have the 
+ * property name provided as an argument at invocation.
 */
+
 function pluck(array, prop){
     let newArray = map(array, function(object){
         for (let key in object){
@@ -331,6 +337,8 @@ function pluck(array, prop){
  * @param {Function} func: the callback function through which each member of the input collection is passed. This
  * function must return a boolean value for .every to work properly.
  * 
+ * @return {Boolean}: returns true or false depending on if all elements of an input Array or all values of an
+ * input Object return true when passed to a provided callback function.
 */
 
 function every(collection, func){
@@ -373,6 +381,8 @@ function every(collection, func){
  * @param {Function} func: the callback function through which members of the input collection are passed. This function
  * must return a boolean to work properly.
  * 
+ * @return {Boolean}: returns true or false, depending on if one element of an input Array or one value of an
+ * input Object returns true when passed to a provided callback function.
 */
 
 function some(collection, func){
@@ -429,8 +439,12 @@ function some(collection, func){
  * @param {Function} func: the callback function that is called over successive elements of the input array. This function's
  * definition determines how the "previous value" is changed as the callback executes on successive elements.
  * @param {Array, Object or Value} seed: an optional Array, Object or Value that serves as the starting point for the
- * exeecution of .reduce.
+ * execution of .reduce.
  * 
+ * @return {Array, Object or Value}: the datatype that is returned by this function is determined by the seed value
+ * and the logic of the callback function. Normally you'd want to update the same collection or value when reducing an
+ * input array, but the value returned by the callback function each iteration could be unrelated to values 
+ * derived from previous iterations. 
 */
 
 function reduce(array, func, seed){
