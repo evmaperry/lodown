@@ -152,7 +152,7 @@ function contains(arr, value){
 }
 
 /** 
- * each: executes a defined function on all members of a defined collection. Works for both arrays
+ * each: executes a provided function on all members of a provided collection. Works for both arrays
  * and objects. For arrays, the value of each element is passed into the defined function. For objects
  * the value of each property is passed into the defined function. This function does not explicitly
  * return any values.
