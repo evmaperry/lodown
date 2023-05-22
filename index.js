@@ -154,11 +154,11 @@ function contains(arr, value){
 /** 
  * each: executes a defined function on all members of a defined collection. Works for both arrays
  * and objects. For arrays, the value of each element is passed into the defined function. For objects
- * the value of each property is passed into the defined function.
+ * the value of each property is passed into the defined function. This function does not explicitly
+ * return any values.
  * 
  * @param {Array or Object} collection: the collection the elements of which are passed into a defined function.
  * @param {Function} func: the function that executes on each member of the collection.
- * 
 */
 
 function each(collection, func){
@@ -176,8 +176,9 @@ function each(collection, func){
 /** 
  * unique: takes an input array and returns an array with duplicates removed.
  * 
- * @param {Array} array: the array the duplicates of which will be removed from the output array.
+ * @param {Array} array: the array the duplicates of which are excluded from the output array.
  *   
+ * @return {Array}: equivalent to the input array provided at invocation, but without duplicates.
 */
 
 function unique(array){
@@ -193,13 +194,15 @@ function unique(array){
 /** 
  * filter: takes an input array and executes a defined callback function on each element. If the callback
  * returns true, the element is pushed into a new array; if the callback returns false, the element is passed
- * over. .filter returns a new array of all elements that, when passed through the callback function, return 
+ * over. Filter returns a new array of all elements that, when passed through the callback function, return 
  * true.
  * 
  * @param {Array} array: the array the elements of which are passed to the callback function.
  * @param {Function} func: the callback function through which the input array's elements are passed. This
  * function must return a boolean value for .filter to work properly.
  * 
+ * @return {Array}: an array of those elements from the input array that return true once
+ * passed to the provided callback function.
 */
 
 function filter(array, func){
@@ -220,6 +223,8 @@ function filter(array, func){
  * @param {Function} func: the callback function that executes on each element of the input array. This 
  * function must evaluated to a boolean in order for .reject to work properly.
  * 
+ * @return {Array}: an array of those elements from the input array that return false once
+ * passed to the provided callback function.
 */
 
 function reject(array, func){
@@ -243,6 +248,9 @@ function reject(array, func){
  * @param {Function} func: the callback function through which each element of the input array is passed. This function
  * must return a boolean value in order for .partition to work.
  * 
+ * @return {Array}: an array of two nested arrays. The first nested array contains those elements of the input array
+ * that return true once passed to the provided callback function. The second nested array contains those elements of the
+ * input array that return false once passed to the provided callback function.
 */
 
 function partition(array, func){
