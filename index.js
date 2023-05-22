@@ -48,15 +48,17 @@ function typeOf(value){
 }
 
 /** 
- * first: returns a defined number of elements from the beginning of the input array in a new array.
- * Returns the array's first element if 'num' argument is not a number or undefined. 
+ * first: returns a defined number of elements from the beginning of the 
+ * input array in a new array. Returns the array's first element if 'num' 
+ * argument is not a number or undefined. 
  * 
  * @param {Array} arr: the array the elements of which are returned
- * @param {Number} num: the number of elements from the input array to be returned in a new array.
+ * @param {Number} num: the number of elements from the input array to be 
+ * returned in a new array.
  * 
- * @return {Array}: an array of values derived from the beginning of the input array. The number of elements in the
- * return array is derived from the num argument provided at invocation.
- * 
+ * @return {Array}: an array of values derived from the beginning of the 
+ * input array. The number of elements in the return array is derived from 
+ * the num argument provided at invocation.
 */
 
 function first(arr, num){
@@ -79,14 +81,18 @@ function first(arr, num){
 }
 
 /** 
- * last: returns a defined number of elements from the end of the input array in a new array.
- * Returns the last element of the input array if the 'num' argument is not a number or undefined.
+ * last: returns a defined number of elements from the end of the input 
+ * array in a new array. Returns the last element of the input array if 
+ * the 'num' argument is not a number or undefined.
  * 
- * @param {Array} arr: the array the last element(s) of which are returned in a new array.
- * @param {Number} num: the number of items returned from the end of the input array.
+ * @param {Array} arr: the array the last element(s) of which are 
+ * returned in a new array.
+ * @param {Number} num: the number of items returned from the 
+ * end of the input array.
  * 
- * @return {Array}: an array of values derived form the end of the onput array. The number
- * of elements in the return array is a function of the num argument provided at invocation. 
+ * @return {Array}: an array of values derived form the end of the 
+ * onput array. The number of elements in the return array is a function 
+ * of the num argument provided at invocation. 
 */
 
 function last(arr, num){
@@ -109,16 +115,18 @@ function last(arr, num){
 }
 
 /** 
- * indexOf: returns the index of an element in the input array in case the input value is equal
- * to the element's value. Returns the index of the first element the value of which is equal to
- * the input value. If the provided value is not found in the provided array, then the function
- * return -1.
+ * indexOf: returns the index of an element in the input array in case the 
+ * input value is equal to the element's value. Returns the index of the first 
+ * element the value of which is equal to the input value. If the provided value 
+ * is not found in the provided array, then the function returns -1.
  * 
- * @param {Array} arr: the array the elements of which are evaluated against the input value.
- * @param {Value} value: the value that is compared to the value of elements in the input array.
+ * @param {Array} arr: the array the elements of which are evaluated against 
+ * the input value.
+ * @param {Value} value: the value that is compared to the value of elements 
+ * in the input array.
  * 
- * @return {Number}: either the index of the provided array at which the value is located or,
- * if the value is not in the array, -1.
+ * @return {Number}: either the index of the provided array at which the value is 
+ * located or, if the value is not in the array, -1.
 */
 
 function indexOf(arr, value){
@@ -131,15 +139,17 @@ function indexOf(arr, value){
 }
 
 /** 
- * contains: returns true in case a defined value is the value of an element in the input array. If
- * the input value does not equal the value of an element in the input array, the function returns
- * false.
+ * contains: returns true in case a defined value is the value of an element 
+ * in the input array. If the input value does not equal the value of an element 
+ * in the input array, the function returns false.
  * 
- * @param {Array} arr: the array the elements of which are evaluated for equality to the input value.
- * @param {Value} val: the value that is evaluated against the elements of the input array.
+ * @param {Array} arr: the array the elements of which are evaluated for 
+ * equality to the input value.
+ * @param {Value} val: the value that is evaluated against the elements of the 
+ * input array.
  * 
- * @returns {Boolean}: either true or false. True if the provided value is located somewhere in the
- * provided array, and false if not.
+ * @returns {Boolean}: either true or false. True if the provided value is located 
+ * somewhere in the provided array, and false if not.
 */
 
 function contains(arr, value){
@@ -152,12 +162,19 @@ function contains(arr, value){
 }
 
 /** 
- * each: executes a provided function on all members of a provided collection. Works for both arrays
- * and objects. For arrays, the value of each element is passed into the defined function. For objects
- * the value of each property is passed into the defined function. This function does not explicitly
- * return any values.
+ * each: executes a defined function on all members of a provided collection. 
+ * Works for both arrays and objects. This method does not explicitly return any values.
  * 
- * @param {Array or Object} collection: the collection the elements of which are passed into a defined function.
+ * For arrays: the value of each element is passed into the callback function. 
+ * The callback function can take as arguments the element, the index, and the 
+ * original array provided at invocation. 
+ * 
+ * For objects: the value of each property is passed into the defined callback function. 
+ * The callback function can take as arguments the value, key, and the original object 
+ * provided at invocation.
+ * 
+ * @param {Array or Object} collection: the collection the elements of which are passed 
+ * into a defined function.
  * @param {Function} func: the function that executes on each member of the collection.
 */
 
@@ -176,9 +193,11 @@ function each(collection, func){
 /** 
  * unique: takes an input array and returns an array with duplicates removed.
  * 
- * @param {Array} array: the array the duplicates of which are excluded from the output array.
+ * @param {Array} array: the array the duplicates of which are excluded from the 
+ * output array.
  *   
- * @return {Array}: equivalent to the input array provided at invocation, but without duplicates.
+ * @return {Array}: equivalent to the input array provided at invocation, but 
+ * without duplicates.
 */
 
 function unique(array){
@@ -192,17 +211,19 @@ function unique(array){
 }
 
 /** 
- * filter: takes an input array and executes a defined callback function on each element. If the callback
- * returns true, the element is pushed into a new array; if the callback returns false, the element is passed
- * over. Filter returns a new array of all elements that, when passed through the callback function, return 
- * true.
+ * filter: takes an input array and executes a defined callback function on each 
+ * element. If the callback returns true, the element is pushed into a new array; 
+ * if the callback returns false, the element is passed over. Filter returns a new 
+ * array of all elements that, when passed through the callback function, return true.
  * 
- * @param {Array} array: the array the elements of which are passed to the callback function.
- * @param {Function} func: the callback function through which the input array's elements are passed. This
- * function must return a boolean value for .filter to work properly.
+ * @param {Array} array: the array the elements of which are passed to the 
+ * callback function.
+ * @param {Function} func: the callback function through which the input 
+ * array's elements are passed. This function must return a boolean value 
+ * for .filter to work properly.
  * 
- * @return {Array}: an array of those elements from the input array that return true once
- * passed to the provided callback function.
+ * @return {Array}: an array of those elements from the input array that return 
+ * true once passed to the provided callback function.
 */
 
 function filter(array, func){
@@ -216,15 +237,18 @@ function filter(array, func){
 }
 
 /** 
- * reject: takes an input array, passes each element through a callback function, and returns an array populated
- * by the elements that, when they are passed through the callback function, return false. 
+ * reject: takes an input array, passes each element through a callback function, and 
+ * returns an array populated by the elements that, when they are passed through the 
+ * callback function, return false. 
  * 
- * @param {Array} array: the array the elements of which are passed through the callback function.
- * @param {Function} func: the callback function that executes on each element of the input array. This 
- * function must evaluated to a boolean in order for .reject to work properly.
+ * @param {Array} array: the array the elements of which are passed through the 
+ * callback function.
+ * @param {Function} func: the callback function that executes on each element 
+ * of the input array. This function must evaluated to a boolean in order for .reject 
+ * to work properly.
  * 
- * @return {Array}: an array of those elements from the input array that return false once
- * passed to the provided callback function.
+ * @return {Array}: an array of those elements from the input array that return false 
+ * once passed to the provided callback function.
 */
 
 function reject(array, func){
@@ -238,19 +262,23 @@ function reject(array, func){
 }
 
 /** 
- * partition: separates the elements of an array into two arrays according to whether their passing
- * through a callback function returns true or false. Both the 'true' and 'false' arrays are returned
- * by .partition in a single array. The first element of the returned array is an array of those elements
- * that return true after being passed through the callback, while the second element is an array of those
- * elements that fail after passing through the callback.
+ * partition: separates the elements of an array into two arrays according to whether 
+ * their passing through a callback function returns true or false. Both the 'true' and
+ * 'false' arrays are returned by .partition in a single array. The first element of
+ * the returned array is an array of those elements that return true after being passed 
+ * through the callback, while the second element is an array of those elements that fail 
+ * after passing through the callback.
  * 
- * @param {Array} array: the array the elements of which are passed through the defined callback function.
- * @param {Function} func: the callback function through which each element of the input array is passed. This function
- * must return a boolean value in order for .partition to work.
+ * @param {Array} array: the array the elements of which are passed through the defined 
+ * callback function.
+ * @param {Function} func: the callback function through which each element of the input 
+ * array is passed. This function must return a boolean value in order for .partition to 
+ * work.
  * 
- * @return {Array}: an array of two nested arrays. The first nested array contains those elements of the input array
- * that return true once passed to the provided callback function. The second nested array contains those elements of the
- * input array that return false once passed to the provided callback function.
+ * @return {Array}: an array of two nested arrays. The first nested array contains those 
+ * elements of the input array that return true once passed to the provided callback 
+ * function. The second nested array contains those elements of the input array that return 
+ * false once passed to the provided callback function.
 */
 
 function partition(array, func){
@@ -271,16 +299,27 @@ function partition(array, func){
 }
 
 /** 
- * map: takes an input collection (i.e., an array or object) and executes a defined callback function on each member. The
- * result of each callback are then saved to a new array, which is then returned after all members have been passed to 
+ * map: takes an input collection (i.e., an array or object) and executes a defined 
+ * callback function on each member. The return value of each callback is then saved 
+ * to a new array, which is finally returned after all members have been passed through 
  * the callback function.
  * 
- * @param {Array or Object} collection: the array or object the members of which are passed to a defined callback.
- * @param {Function} func: the callback function through which members of the input collection are passed.
+ * For arrays: the value of each element is passed into the callback function. The 
+ * callback function can take as arguments the element, the index, and the original 
+ * array provided at invocation. 
  * 
- * @return {Array or Object}: this function returns the same type, either Array or Object, that is provided as the
- * collection argument at invocation. The elements of a returned Array or the values of a returned Object are updated
- * by the provided callback function.
+ * For objects: the value of each property is passed into the defined callback function. 
+ * The callback function can take as arguments the value, key, and the original object 
+ * provided at invocation.
+ * 
+ * @param {Array or Object} collection: the array or object the members of which are 
+ * passed to a defined callback.
+ * @param {Function} func: the callback function through which members of the input
+ * collection are passed.
+ * 
+ * @return {Array or Object}: this function returns the same type, either Array or Object,
+ * that is provided as the collection argument at invocation. The elements of a returned 
+ * Array or the values of a returned Object are updated by the provided callback function.
 */
 
 function map(collection, func){
@@ -302,18 +341,20 @@ function map(collection, func){
 }
 
 /** 
- * pluck: takes an input array of objects and a provided property written as a string, and loops through the array of objects 
- * to determine if the provided property is in each object. If so, the value of that property is
- * push into an array, and the array is returned after all elements have been evaluated for the presence of
- * the provided property. The returned array, then, is populated with the values of the provided property of
+ * pluck: takes an input array of objects and a provided property written as a string, and 
+ * loops through the array of objects to determine if the provided property is in each object. 
+ * If so, the value of that property is push into an array, and the array is returned after
+ * all elements have been evaluated for the presence of the provided property. The returned
+ * array, then, is populated with the values of the provided property of
  * each object (if the property exists in the object).
  * 
- * @param {Array} array: an array of objects, the objects of which are evaluated for the presence of the defined property
- * @param {String} prop: a property, represented as a string, the presence of which is evaluated in each object of
- * the input array.
+ * @param {Array} array: an array of objects, the objects of which are evaluated for the 
+ * presence of the defined property
+ * @param {String} prop: a property, represented as a string, the presence of which is 
+ * evaluated in each object of the input array.
  * 
- * @return {Array}: an array containing the property values of those objects in the input array that have the 
- * property name provided as an argument at invocation.
+ * @return {Array}: an array containing the property values of those objects in the input 
+ * array that have the property name provided as an argument at invocation.
 */
 
 function pluck(array, prop){
@@ -329,16 +370,19 @@ function pluck(array, prop){
 }
 
 /** 
- * every: takes an input collection (i.e., and array or object) and executes a callback function on each
- * member of the collection. Returns true in case all members of the collection return true after their call-
- * back execution, and returns false if some member of the collection returns false after its callback execution.
+ * every: takes an input collection (i.e., and array or object) and executes a callback
+ * function on each member of the collection. Returns true in case all members of the 
+ * collection return true after their callback execution, and returns false if some 
+ * member of the collection returns false after its callback execution.
  * 
- * @param {Array or Object} collection: the collection the elements of which are passed through a callback
- * @param {Function} func: the callback function through which each member of the input collection is passed. This
- * function must return a boolean value for .every to work properly.
+ * @param {Array or Object} collection: the collection the elements of which are passed
+ * through a callback.
+ * @param {Function} func: the callback function through which each member of the input
+ * collection is passed. This function must return a boolean value for .every to work
+ * properly.
  * 
- * @return {Boolean}: returns true or false depending on if all elements of an input Array or all values of an
- * input Object return true when passed to a provided callback function.
+ * @return {Boolean}: returns true or false depending on if all elements of an input Array
+ * or all values of an input Object return true when passed to a provided callback function.
 */
 
 function every(collection, func){
@@ -372,17 +416,18 @@ function every(collection, func){
 }
 
 /** 
- * some: takes an input collection (i.e., an array or object) and passes each member of the collection
- * to a callback function. Returns true in case any member of the collection returns true after being passed
- * through the callback function. If no members return true, then .some returns false.
+ * some: takes an input collection (i.e., an array or object) and passes each member of 
+ * the collection to a callback function. Returns true in case any member of the collection 
+ * returns true after being passed through the callback function. If no members return true, 
+ * then .some returns false.
  * 
- * @param {Array or Object} collection: the array or object the members of which are passed through a callback
- * function.
- * @param {Function} func: the callback function through which members of the input collection are passed. This function
- * must return a boolean to work properly.
+ * @param {Array or Object} collection: the array or object the members of which are passed 
+ * through a callback function.
+ * @param {Function} func: the callback function through which members of the input collection 
+ * are passed. This function must return a boolean to work properly.
  * 
- * @return {Boolean}: returns true or false, depending on if one element of an input Array or one value of an
- * input Object returns true when passed to a provided callback function.
+ * @return {Boolean}: returns true or false, depending on if one element of an input Array 
+ * or one value of an input Object returns true when passed to a provided callback function.
 */
 
 function some(collection, func){
@@ -429,22 +474,25 @@ function some(collection, func){
 }
 
 /** 
- * reduce: takes an input array, a callback function, and a seed value. The callback function is first called on 
- * the seed value (if the seed value is provided), but otherwise is called on the first element of the array. 
- * The returned result of this first call is routed into the next call of the callback function, which executes
- * on the succeeding element of the array. Thus a "previous value" or "accumulator" is
- * also passed through on each callback execution.
+ * reduce: takes an input array, a callback function, and a seed value. The callback 
+ * function is first called on the seed value (if the seed value is provided), but otherwise 
+ * is called on the first element of the array. The returned result of this first call is 
+ * routed into the next call of the callback function, which executes on the succeeding 
+ * element of the array. Thus a "previous value" or "accumulator" is also passed through 
+ * on each callback execution.
  * 
  * @param {Array} array: the list of elements over which the callback function executes.
- * @param {Function} func: the callback function that is called over successive elements of the input array. This function's
- * definition determines how the "previous value" is changed as the callback executes on successive elements.
- * @param {Array, Object or Value} seed: an optional Array, Object or Value that serves as the starting point for the
- * execution of .reduce.
+ * @param {Function} func: the callback function that is called over successive elements 
+ * of the input array. This function's definition determines how the "previous value" is 
+ * changed as the callback executes on successive elements.
+ * @param {Array, Object or Value} seed: an optional Array, Object or Value that serves 
+ * as the starting point for the execution of .reduce.
  * 
- * @return {Array, Object or Value}: the datatype that is returned by this function is determined by the seed value
- * and the logic of the callback function. Normally you'd want to update the same collection or value when reducing an
- * input array, but the value returned by the callback function each iteration could be unrelated to values 
- * derived from previous iterations. 
+ * @return {Array, Object or Value}: the datatype that is returned by this function is 
+ * determined by the seed value and the logic of the callback function. Normally you'd 
+ * want to update the same collection or value when reducing an input array, but the value 
+ * returned by the callback function each iteration could be unrelated to values derived 
+ * from previous iterations. 
 */
 
 function reduce(array, func, seed){
@@ -465,13 +513,17 @@ function reduce(array, func, seed){
 }
 
 /** 
- * extend: takes a target object and any number of source objects, and copies the properties from the source objects
- * to the targe object, then returns the updated target object.
+ * extend: takes a target object and any number of source objects, and copies the 
+ * properties from the source objects to the targe object, then returns the updated 
+ * target object.
  * 
- * @param {Object} object: the object to which all properties from source objects will be copied.
- * @param {Array} objects: the array that contains the objects the properties of which are copied to the target object.
+ * @param {Object} object: the object to which all properties from source objects 
+ * will be copied.
+ * @param {Array} objects: the array that contains the objects the properties of 
+ * which are copied to the target object.
  * 
- * @return {Object}: the target object updated to contain the properties of the objects provided as arguments at invocation.
+ * @return {Object}: the target object updated to contain the properties of the 
+ * objects provided as arguments at invocation.
 */
 
 function extend(object, ...objects){
