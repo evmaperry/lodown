@@ -471,6 +471,7 @@ function reduce(array, func, seed){
  * @param {Object} object: the object to which all properties from source objects will be copied.
  * @param {Array} objects: the array that contains the objects the properties of which are copied to the target object.
  * 
+ * @return {Object}: the target object updated to contain the properties of the objects provided as arguments at invocation.
 */
 
 function extend(object, ...objects){
